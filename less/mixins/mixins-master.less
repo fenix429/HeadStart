@@ -1,0 +1,59 @@
+// Rem output with px fallback
+.font-size(@sizeValue: 1.6) {
+	font-size: unit(@sizeValue * 10, px);
+	font-size: unit(@sizeValue, rem);
+}
+
+// Box model
+.box-sizing(@box-model) {
+	-webkit-box-sizing: @box-model; // Safari <= 7
+	-moz-box-sizing: @box-model; // Firefox <= 19
+	box-sizing: @box-model;
+}
+
+// Border radius
+.border-radius(@radius) {
+	background-clip: padding-box; /* stops bg color from leaking outside the border: */
+	-webkit-border-radius: @radius;
+	border-radius: @radius;
+}
+
+// Center block
+.center-block {
+	display: block;
+	margin: 0 auto;
+}
+
+// Clearfix
+.clearfix {
+	content: "";
+	display: table;
+}
+
+// Clear after (not all clearfix need this also)
+.clearfix-after {
+	clear: both;
+}
+
+// Breakpoints
+.break(@query, @rules) {
+	@media screen and @query {
+		@rules();
+	}
+}
+
+.break-between(@min, @max, @rules) {
+	.break(~"(min-width : @{min}) and (max-width : @{max})", @rules);
+}
+
+.break-large(@direction, @rules) {
+	.break(~"(@{direction}-width: @{breakpoint__papa-bear})", @rules);
+}
+
+.break-med(@direction, @rules) {
+	.break(~"(@{direction}-width: @{breakpoint__mama-bear})", @rules);
+}
+
+.break-small(@direction, @rules) {
+	.break(~"(@{direction}-width: @{breakpoint__baby-bear})", @rules);
+}

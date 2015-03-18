@@ -1,0 +1,97 @@
+// @import "layout/content-sidebar";
+// @import "layout/sidebar-content";
+
+.column {
+	width: @size__site-main;
+	margin: 0 auto;
+	.clearfix();
+
+	.with-sidebar {
+		width: 95% - @size__site-sidebar;
+		float: left;
+	}
+
+	.sidebar {
+		width: @size__site-sidebar;
+		float: right;
+	}
+
+	// Quick Grid
+	.one-half {
+		width: 49%;
+		margin-right: 2%;
+		float: left;
+	}
+
+	.one-third {
+		width: 32%;
+		margin-right: 2%;
+		float: left;
+	}
+
+	.two-thirds {
+		width: 64%;
+		margin-right: 2%;
+		float: left;
+	}
+
+	.one-fourth {
+		width: 23%;
+		margin-right: 2%;
+		float: left;
+	}
+
+	.three-fourths {
+		width: 73%;
+		margin-right: 2%;
+		float: left;
+	}
+
+	.end {
+		margin-right: 0 !important;
+	}
+}
+
+.site-header {
+	
+	.site-branding {
+		
+		img {
+			vertical-align: bottom;
+		}
+	}
+}
+
+.site-content {
+	
+}
+
+.site-footer {
+	
+	span {
+		display: block;
+	}
+
+	a {
+		color: @color__footer-link;
+	}
+	
+	a[rel="designer"] {
+		font-style: italic;
+	}
+}
+
+/*--------------------------------------------------------------
+10.1 Posts and pages
+--------------------------------------------------------------*/
+@import "primary/posts-and-pages";
+
+/*--------------------------------------------------------------
+10.2 Asides
+--------------------------------------------------------------*/
+@import "primary/asides";
+
+/*--------------------------------------------------------------
+10.3 Comments
+--------------------------------------------------------------*/
+@import "primary/comments";
