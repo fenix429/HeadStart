@@ -12,7 +12,12 @@ if ( ! function_exists( 'ez_get_permalink_by_slug' ) ) :
  */
 function ez_get_permalink_by_slug( $slug ) {
 	$post_obj = get_page_by_path( $slug );
-	return get_permalink( $post_obj->ID );
+	
+	if( is_null( $post_obj ) ) {
+		return false;
+	} else {
+		return get_permalink( $post_obj->ID );
+	}
 }
 endif;
 
