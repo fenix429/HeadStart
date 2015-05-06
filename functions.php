@@ -148,11 +148,6 @@ remove_action('wp_head', 'feed_links', 2); // Remove Post and Comment Feeds
 require get_template_directory() . '/inc/acf-predefined-fields.php';
 
 /**
- * EZToUse.com template tags.
- */
-require get_template_directory() . '/inc/ez-template-tags.php';
-
-/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
