@@ -4,7 +4,11 @@
 .column {
 	width: @size__site-main;
 	margin: 0 auto;
-	.clearfix();
+	//.clearfix();
+	
+	.break-large('max', {
+		width: 100%;
+	});
 
 	.with-sidebar {
 		width: 95% - @size__site-sidebar;
@@ -50,6 +54,19 @@
 	.end {
 		margin-right: 0 !important;
 	}
+	
+	.break-med('max', {
+		.one-half, .one-third, .two-thirds, .one-fourth, .three-fourths {
+			width: 100%;
+			margin-right: 0;
+			margin-bottom: 15px;
+			float: none;
+		}
+		
+		.collapse-hidden {
+			display: none;
+		}
+	});
 }
 
 .site-header {
