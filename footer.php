@@ -11,6 +11,7 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
+		<?php get_sidebar( 'footer' ); ?>
 		<div class="site-info">
 			<span class="copy">&copy; <?= __('Copyright', '_hs') ?> <?= date('Y'); ?> <?php bloginfo('name'); ?>. <?= __('All Rights Reserved.', '_hs') ?></span>
 			<span class="poweredby"><?= __('Powered By:', '_hs') ?> <a href="http://eztouse.com" rel="designer">EZToUse.com</a></span>
