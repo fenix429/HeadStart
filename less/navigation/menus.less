@@ -1,8 +1,7 @@
-.site-navigation {
+.site-header .site-navigation {
 	clear: both;
 	display: block;
 	width: 100%;
-	margin-top: 30px;
 	
 	ul {
 		list-style: none;
@@ -55,11 +54,6 @@
 
 		&:hover > a {
 		}
-
-		&:last-of-type {
-			border: none;
-			padding-right: 0;
-		}
 	}
 
 	a {
@@ -78,6 +72,40 @@
 	.current_page_item > a,
 	.current-menu-item > a {
 		color: @color__menu-current;
+	}
+}
+
+.site-footer .site-navigation {
+	display: block;
+	width: 100%;
+	
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		text-align: left;
+
+		ul { display: none; }
+	}
+	li {
+
+
+		&:hover > a {
+		}
+	}
+
+	a {
+
+		&:hover {
+			
+		}
+	}
+
+	.current_page_ancestor > a,
+	.current-menu-ancestor > a,
+	.current_page_item > a,
+	.current-menu-item > a {
+		
 	}
 }
 
