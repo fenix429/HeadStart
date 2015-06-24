@@ -42,7 +42,8 @@ function _hs_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', '_hs' ),
+		'header' => __( 'Header Menu', '_hs' ),
+		//'footer' => __( 'Footer Menu', '_hs' ),
 	) );
 
 	/*
@@ -71,13 +72,12 @@ function _hs_setup() {
 	*  Initialize the ACF options page
 	*/
 	/* if(function_exists('acf_add_options_page')) { 
-		acf_add_options_page([
-			'page_title' 	=> 'Website Options',
-			'menu_title'	=> 'Site Options',
-			'menu_slug' 	=> 'site-options',
+		acf_add_sub_options_page(array(
+			'page_title'	=> 'Theme Settings',
+			'parent'		=> 'themes.php',
 			'capability'	=> 'edit_posts',
 			'redirect'		=> false
-		]);
+		));
 	} */
 
 	// Set up the WordPress core custom background feature.
@@ -135,7 +135,9 @@ add_action( 'widgets_init', '_hs_widgets_init' );
 function _hs_scripts() {
 	wp_enqueue_style( '_hs-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( '_hs-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	wp_enqueue_script( 'jquery.slicknav', get_template_directory_uri() . '/js/jquery.slicknav.min.js', array('jquery'), '1.0.2' );
+
+	wp_enqueue_script( '_hs-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'),  '20150306', true );
 
 	wp_enqueue_script( '_hs-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 

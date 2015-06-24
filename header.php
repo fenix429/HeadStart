@@ -27,7 +27,11 @@
 		</div>
 
 		<nav id="main-navigation" class="site-navigation" role="navigation">
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container_class' => 'column' ) ); ?>
+			<?php wp_nav_menu( array(
+					'theme_location' => 'header',
+					'container_id' => 'primary-menu',
+					'container_class' => 'menu'
+				) ); ?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 

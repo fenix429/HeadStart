@@ -3,42 +3,30 @@
  *
  * Handles toggling the navigation menu for small screens.
  */
-( function() {
-	var container, button, menu;
-
-	container = document.getElementById( 'site-navigation' );
-	if ( ! container ) {
-		return;
+( function($) {
+	if ( ("ontouchstart" in document.documentElement) || window.navigator.msPointerEnabled ) {
+		$('li.menu-item-has-children > a').on('touchstart MSPointerDown', function(evt){
+			var menuitem = $(evt.target).parent();
+			
+			if( ! menuitem.hasClass('touchopen') ) { evt.preventDefault(); }
+			
+			menuitem.siblings().removeClass('touchopen');
+			menuitem.toggleClass('touchopen');
+			
+			// stop it from bubbling to ALL other handlers
+			evt.stopImmediatePropagation();
+		});
+		
+		$('.site-navigation a').on('touchstart MSPointerDown', function(evt){
+			// stop it from bubbling to document
+			evt.stopPropagation();
+		});
+		
+		$(document).on('touchstart MSPointerDown', function(){
+			// close menu if body touched
+			$('li.menu-item-has-children').removeClass('touchopen');
+		});
 	}
-
-	button = container.getElementsByTagName( 'button' )[0];
-	if ( 'undefined' === typeof button ) {
-		return;
-	}
-
-	menu = container.getElementsByTagName( 'ul' )[0];
-
-	// Hide menu toggle button if menu is empty and return early.
-	if ( 'undefined' === typeof menu ) {
-		button.style.display = 'none';
-		return;
-	}
-
-	menu.setAttribute( 'aria-expanded', 'false' );
-
-	if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
-		menu.className += ' nav-menu';
-	}
-
-	button.onclick = function() {
-		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
-			container.className = container.className.replace( ' toggled', '' );
-			button.setAttribute( 'aria-expanded', 'false' );
-			menu.setAttribute( 'aria-expanded', 'false' );
-		} else {
-			container.className += ' toggled';
-			button.setAttribute( 'aria-expanded', 'true' );
-			menu.setAttribute( 'aria-expanded', 'true' );
-		}
-	};
-} )();
+	
+	$('#primary-menu > ul').slicknav({ prependTo: '#mobile-menu-container' });
+} )(window.jQuery);
