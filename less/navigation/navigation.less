@@ -8,3 +8,17 @@
 --------------------------------------------------------------*/
 @import "menus-desktop";
 @import "menus-mobile";
+
+.slicknav_menu {
+	display: none;
+}
+
+@media screen and (max-width: 850px) {
+	.site-header .site-navigation {
+		display: none;
+	}
+	
+	.slicknav_menu {
+		display: block;
+	}
+}
