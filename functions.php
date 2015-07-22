@@ -71,8 +71,8 @@ function _hs_setup() {
 	/*
 	*  Initialize the ACF options page
 	*/
-	/* if(function_exists('acf_add_options_page')) { 
-		acf_add_sub_options_page(array(
+	/* if(function_exists('acf_add_options_sub_page')) { 
+		acf_add_options_sub_page(array(
 			'page_title'	=> 'Theme Settings',
 			'parent'		=> 'themes.php',
 			'capability'	=> 'edit_posts',
