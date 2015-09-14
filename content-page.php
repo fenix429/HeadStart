@@ -7,6 +7,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php if( function_exists('get_field') and ! get_field('remove_entry_header') ): ?>
 	<header class="entry-header">
 		<?php if( function_exists('get_field') AND get_field('hide_title') ): ?>
 		    <?php the_field('custom_header'); ?>
@@ -14,6 +15,7 @@
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		<?php endif; ?>
 	</header><!-- .entry-header -->
+	<?php endif; ?>
 
 	<div class="entry-content">
 		<?php the_content(); ?>
