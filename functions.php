@@ -66,7 +66,7 @@ function _hs_setup() {
 	 * Enable support for Post Thumbnails.
 	 * See http://codex.wordpress.org/Post_Thumbnails
 	 */
-	add_theme_support( 'post-thumbnails' );
+	//add_theme_support( 'post-thumbnails' );
 
 	/*
 	*  Initialize the ACF options page
@@ -108,7 +108,7 @@ add_filter('acf/settings/show_admin', '_hs_acf_show_admin');
 function _hs_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Footer Widgets', '_hs' ),
-		'id'            => 'sidebar-1',
+		'id'            => 'footer-1',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
@@ -135,9 +135,7 @@ add_action( 'widgets_init', '_hs_widgets_init' );
 function _hs_scripts() {
 	wp_enqueue_style( '_hs-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'jquery.slicknav', get_template_directory_uri() . '/js/jquery.slicknav.min.js', array('jquery'), '1.0.2' );
-
-	wp_enqueue_script( '_hs-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'),  '20150306', true );
+	//wp_enqueue_script( '_hs-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'),  '20150306', true );
 
 	wp_enqueue_script( '_hs-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 

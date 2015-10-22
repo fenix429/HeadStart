@@ -11,7 +11,7 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<?php get_sidebar( 'footer' ); ?>
+		<?php //get_sidebar( 'footer' ); ?>
 
 		<?php /*
 		<nav id="site-map" class="site-navigation" role="navigation">
