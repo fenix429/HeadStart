@@ -6,17 +6,17 @@
 	ul {
 		list-style: none;
 		margin: 0;
-		padding: 0;
+		padding-left: 0;
 		text-align: center;
 
 		ul {
+			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 			float: left;
 			position: absolute;
-			top: 100%;
+			top: 1.5em;
 			left: -999em;
 			z-index: 99999;
-			margin: 0;
-			text-align: center;
+			text-align: left;
 
 			ul {
 				left: -999em;
@@ -24,27 +24,28 @@
 			}
 
 			li {
-				height: auto;
-				
-				&:hover > ul {
+				&:hover > ul,
+				&.focus > ul {
 					left: 100%;
 				}
 			}
 
 			a {
-				display: block;
-				width: 160px;
+				width: 200px;
 			}
 
-			:hover > a {
+			:hover > a,
+			.focus > a {
 			}
 
-			a:hover {
+			a:hover,
+			a.focus {
 			}
 		}
 
-		li:hover > ul {
-			left: 0;
+		li:hover > ul,
+		li.focus > ul {
+			left: auto;
 		}
 	}
 	li {
@@ -52,11 +53,12 @@
 		display: inline-block;
 		position: relative;
 
-		&:hover > a {
+		&:hover > a,
+		&.focus > a {
 		}
 	}
-
 	a {
+		display: block;
 		font-family: @font__headline;
 		text-transform: uppercase;
 		text-decoration: none;
@@ -67,11 +69,42 @@
 		}
 	}
 
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a,
 	.current_page_item > a,
-	.current-menu-item > a {
+	.current-menu-item > a,
+	.current_page_ancestor > a,
+	.current-menu-ancestor > a {
 		color: @color__menu-current;
+	}
+}
+
+.site-header .site-navigation {
+	display: block;
+	width: 100%;
+	
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		text-align: left;
+		
+		ul { display: none; }
+	}
+	li {
+
+		&:hover > a,
+		&.focus > a {
+		}
+	}
+	a {
+
+		&:hover {
+		}
+	}
+
+	.current_page_item > a,
+	.current-menu-item > a,
+	.current_page_ancestor > a,
+	.current-menu-ancestor > a {
 	}
 }
 
@@ -89,15 +122,13 @@
 	}
 	li {
 
-
 		&:hover > a {
 		}
 	}
 
 	a {
 
-		&:hover {
-			
+		&:hover {	
 		}
 	}
 
@@ -107,26 +138,4 @@
 	.current-menu-item > a {
 		
 	}
-}
-
-.site-main .comment-navigation,
-.site-main .paging-navigation,
-.site-main .post-navigation {
-	margin: 0 0 1.5em;
-	overflow: hidden;
-}
-
-.comment-navigation .nav-previous,
-.paging-navigation .nav-previous,
-.post-navigation .nav-previous {
-	float: left;
-	width: 50%;
-}
-
-.comment-navigation .nav-next,
-.paging-navigation .nav-next,
-.post-navigation .nav-next {
-	float: right;
-	text-align: right;
-	width: 50%;
 }

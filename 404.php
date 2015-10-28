@@ -24,8 +24,8 @@ get_header(); ?>
 
 			<section class="error-404 not-found">
 				<header class="page-header">
-					<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'hed' ); ?></h1>
-					<h2><?php _e( 'Let me help you find what you came here for:', 'hed' ); ?></h2>
+					<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', '_hs' ); ?></h1>
+					<h2><?php _e( 'Let me help you find what you came here for:', '_hs' ); ?></h2>
 				</header><!-- .page-header -->
 
 				<div class="page-content">
@@ -41,7 +41,7 @@ get_header(); ?>
 
 					<?php if (count($posts) > 0) : ?>
 
-							<p><?php _e( 'Were you looking for <strong>one of the following</strong> posts or pages', 'hed' ); ?></p>
+							<p><?php _e( 'Were you looking for <strong>one of the following</strong> posts or pages', '_hs' ); ?></p>
 
 							<ul>
 							

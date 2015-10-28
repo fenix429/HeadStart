@@ -2,6 +2,8 @@
 /**
  * The template for displaying all single posts.
  *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ *
  * @package HeadStart
  */
 
@@ -12,9 +14,9 @@ get_header(); ?>
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php get_template_part( 'content', 'single' ); ?>
+			<?php get_template_part( 'template-parts/content', 'single' ); ?>
 
-			<?php _hs_post_nav(); ?>
+			<?php the_post_navigation(); ?>
 
 			<?php /*
 				// If comments are open or we have at least one comment, load up the comment template
@@ -23,7 +25,7 @@ get_header(); ?>
 				endif;
 			*/ ?>
 
-		<?php endwhile; // end of the loop. ?>
+		<?php endwhile; // End of the loop. ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
