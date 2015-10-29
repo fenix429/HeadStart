@@ -26,11 +26,11 @@
 		*/ ?>
 
 		<div class="site-info">
-			<span class="copy">&copy; <?= __('Copyright', '_hs') ?> <?= date('Y'); ?> <?php bloginfo('name'); ?>. <?= __('All Rights Reserved.', '_hs') ?></span>
+			<span class="copy">&copy; <?php esc_html_e( 'Copyright', '_hs' ) ?> <?php echo esc_html( date( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?>. <?php esc_html_e( 'All Rights Reserved.', '_hs' ) ?></span>
 			<span class="seperator">|</span>
-			<a class="privacy" href="<?= _hs_get_permalink_by_slug('privacy-notice') ?>"><?php _e('Privacy Notice', '_hs'); ?></a>
+			<a class="privacy" href="<?php echo esc_url( _hs_get_permalink_by_slug( 'privacy-notice' ) ); ?>"><?php esc_html_e( 'Privacy Notice', '_hs' ); ?></a>
 			<span class="seperator">|</span> 
-			<span class="poweredby"><?= __('Powered By:', '_hs') ?> <a href="http://eztouse.com" rel="designer">EZToUse.com</a></span>
+			<span class="poweredby"><?php esc_html_e( 'Powered By:', '_hs' ) ?> <a href="http://eztouse.com" rel="designer">EZToUse.com</a></span>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
