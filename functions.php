@@ -100,7 +100,7 @@ add_action( 'after_setup_theme', '_hs_setup' );
  *
  * @global int $content_width
  */
-function _s_content_width() {
+function _hs_content_width() {
 	$GLOBALS['content_width'] = apply_filters( '_hs_content_width', 640 );
 }
 add_action( 'after_setup_theme', '_hs_content_width', 0 );
