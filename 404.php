@@ -12,11 +12,11 @@
  * @return WHERE statement that strips out attachment
  * @author Joost De Valk
  **/
-function _hs_strip_attachments($where) {
+function _hs_strip_attachments( $where ) {
 	$where .= ' AND post_type != "attachment"';
 	return $where;
 }
-add_filter('posts_where', '_hs_strip_attachments');
+add_filter( 'posts_where', '_hs_strip_attachments' );
 
 get_header(); ?>
 
@@ -32,15 +32,15 @@ get_header(); ?>
 				<div class="page-content">
 					
 					<?php
-						$s = preg_replace( "/(.*)-(html|htm|php|asp|aspx)$/", "$1", $wp_query->query_vars['name'] );
-						$posts = get_posts( 'post_type=any&name=' . esc_sql( $s ); );
-						$s = str_replace( "-", " ", $s );
-						if (count($posts) == 0) {
-							$posts = get_posts( 'post_type=any&s=' . esc_sql( $s ); );
+						$s = preg_replace( '/(.*)-(html|htm|php|asp|aspx)$/', '$1', $wp_query->query_vars['name'] );
+						$posts = get_posts( 'post_type=any&name=' . esc_sql( $s ) );
+						$s = str_replace( '-', ' ', $s );
+						if ( count( $posts ) === 0 ) {
+							$posts = get_posts( 'post_type=any&s=' . esc_sql( $s ) );
 						}
 					?>
 
-					<?php if (count($posts) > 0) : ?>
+					<?php if ( count( $posts ) > 0 ) : ?>
 
 							<p><?php esc_html_e( 'Were you looking for one of the following posts or pages', '_hs' ); ?></p>
 
@@ -54,8 +54,8 @@ get_header(); ?>
 					<?php endif; ?>
 						
 					<label for="s"><strong>Search</strong> for it:</label>
-					<form style="display:inline;" action="<?php bloginfo('siteurl');?>">
-						<input type="search" value="<?php echo esc_attr($s); ?>" id="s" name="s" placeholder="Search for ..."> <input type="submit" value="Search">
+					<form style="display:inline;" action="<?php bloginfo( 'siteurl' );?>">
+						<input type="search" value="<?php echo esc_attr( $s ); ?>" id="s" name="s" placeholder="Search for ..."> <input type="submit" value="Search">
 					</form>
 					
 
