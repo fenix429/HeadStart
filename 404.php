@@ -8,6 +8,7 @@
 /**
  * Because of using post_type=any we have to manually weed out the attachments from the query_posts results.
  *
+ * @param String $where SQL Where Clause.
  * @return WHERE statement that strips out attachment
  * @author Joost De Valk
  **/
@@ -24,30 +25,30 @@ get_header(); ?>
 
 			<section class="error-404 not-found">
 				<header class="page-header">
-					<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', '_hs' ); ?></h1>
-					<h2><?php _e( 'Let me help you find what you came here for:', '_hs' ); ?></h2>
+					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', '_hs' ); ?></h1>
+					<h2><?php esc_html_e( 'Let me help you find what you came here for:', '_hs' ); ?></h2>
 				</header><!-- .page-header -->
 
 				<div class="page-content">
 					
 					<?php
 						$s = preg_replace( "/(.*)-(html|htm|php|asp|aspx)$/", "$1", $wp_query->query_vars['name'] );
-						$posts = query_posts( 'post_type=any&name=' . $s );
+						$posts = get_posts( 'post_type=any&name=' . esc_sql( $s ); );
 						$s = str_replace( "-", " ", $s );
 						if (count($posts) == 0) {
-							$posts = query_posts( 'post_type=any&s=' . $s );
+							$posts = get_posts( 'post_type=any&s=' . esc_sql( $s ); );
 						}
 					?>
 
 					<?php if (count($posts) > 0) : ?>
 
-							<p><?php _e( 'Were you looking for <strong>one of the following</strong> posts or pages', '_hs' ); ?></p>
+							<p><?php esc_html_e( 'Were you looking for one of the following posts or pages', '_hs' ); ?></p>
 
 							<ul>
 							
-							<?php foreach ($posts as $post) : ?>
-								<li><a href="<?php echo get_permalink($post->ID); ?>"><?php echo $post->post_title; ?></a></li>
-							<?php endforeach ;?>
+							<?php foreach ( $posts as $post ) : ?>
+								<li><a href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>"><?php echo esc_html( $post->post_title ); ?></a></li>
+							<?php endforeach; ?>
 							</ul>
 
 					<?php endif; ?>
@@ -64,5 +65,5 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php //get_sidebar(); ?>
+<?php /* get_sidebar(); */ ?>
 <?php get_footer(); ?>
