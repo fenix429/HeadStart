@@ -72,6 +72,9 @@ function _hs_setup() {
 		'link',
 	) );
 
+	// Tells wordpress to look for shortcodes in widget text
+	//add_filter('widget_text', 'do_shortcode');
+
 	/*
 	*  Initialize the ACF options page
 	*/
@@ -83,6 +86,9 @@ function _hs_setup() {
 			'redirect'		=> false
 		));
 	} */
+
+	// Enables The 'Hide' option for labels in Gravity Forms
+	//add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
 
 	// Set up the WordPress core custom background feature.
 	//add_theme_support( 'custom-background', apply_filters( '_hs_custom_background_args', array(
