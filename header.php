@@ -16,7 +16,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-<link href="http://fonts.googleapis.com/css?family=Arvo:700|Open+Sans:400italic,700italic,400,700" rel="stylesheet" type="text/css" />
+<script>
+   WebFontConfig = {
+      google: {
+	      families: ['Arvo:n7', 'Open Sans:n4,i4,n7,i7']
+      }
+   };
+
+   (function(d) {
+      var wf = d.createElement('script'), s = d.scripts[0];
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js';
+      s.parentNode.insertBefore(wf, s);
+   })(document);
+</script>
 
 <?php wp_head(); ?>
 
