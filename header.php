@@ -47,7 +47,7 @@
 			<?php wp_nav_menu( array(
 					'theme_location' => 'header',
 					'container_id' => 'primary-menu',
-					'container_class' => 'menu'
+					'container_class' => 'menu-container'
 				) ); ?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
