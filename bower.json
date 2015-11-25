@@ -1,0 +1,13 @@
+{
+  "name": "head_start",
+  "description": "Custom Wordpress Theme",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests"
+  ]
+}
