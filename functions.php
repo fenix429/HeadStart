@@ -45,7 +45,9 @@ function _hs_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'header' => __( 'Header Menu', '_hs' ),
-		//'footer' => __( 'Footer Menu', '_hs' ),
+		/* WPGEN:CONFIG FOOTER_NAVIGATION:BEGIN */
+		'footer' => __( 'Footer Menu', '_hs' ),
+		/* WPGEN:CONFIG FOOTER_NAVIGATION:END */
 	) );
 
 	/*
@@ -72,20 +74,24 @@ function _hs_setup() {
 		'link',
 	) );
 
+	/* WPGEN:CONFIG SHORTCODES_IN_WIDGETS:BEGIN */
 	// Tells wordpress to look for shortcodes in widget text
-	//add_filter('widget_text', 'do_shortcode');
+	add_filter('widget_text', 'do_shortcode');
+	/* WPGEN:CONFIG SHORTCODES_IN_WIDGETS:END */
 
+	/* WPGEN:CONFIG THEME_SETTINGS:BEGIN */
 	/*
 	*  Initialize the ACF options page
 	*/
-	/* if(function_exists('acf_add_options_sub_page')) { 
+	if(function_exists('acf_add_options_sub_page')) { 
 		acf_add_options_sub_page(array(
 			'page_title'	=> 'Theme Settings',
 			'parent'		=> 'themes.php',
 			'capability'	=> 'edit_posts',
 			'redirect'		=> false
 		));
-	} */
+	}
+	/* WPGEN:CONFIG THEME_SETTINGS:END */
 
 	// Enables The 'Hide' option for labels in Gravity Forms
 	//add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
@@ -128,6 +134,7 @@ add_filter('acf/settings/show_admin', '_hs_acf_show_admin');
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function _hs_widgets_init() {
+	/* WPGEN:CONFIG WIDGETIZED_FOOTER:BEGIN */
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer Widgets', '_hs' ),
 		'id'            => 'footer-1',
@@ -137,7 +144,9 @@ function _hs_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
-	/*
+	/* WPGEN:CONFIG WIDGETIZED_FOOTER:END */
+	
+	/* WPGEN:CONFIG WIDGETIZED_SIDEBAR:BEGIN */
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', '_hs' ),
 		'id'            => 'sidebar-1',
@@ -147,7 +156,7 @@ function _hs_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
-	*/
+	/* WPGEN:CONFIG WIDGETIZED_SIDEBAR:END */
 }
 add_action( 'widgets_init', '_hs_widgets_init' );
 

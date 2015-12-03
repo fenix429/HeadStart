@@ -14,17 +14,19 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<?php //get_sidebar( 'footer' ); ?>
+		<!-- WPGEN:CONFIG WIDGETIZED_FOOTER:BEGIN -->
+		<?php get_sidebar( 'footer' ); ?>
+		<!-- WPGEN:CONFIG WIDGETIZED_FOOTER:END -->
 
-		<?php /*
+		<!-- WPGEN:CONFIG FOOTER_NAVIGATION:BEGIN -->
 		<nav id="site-map" class="site-navigation" role="navigation">
 			<?php wp_nav_menu( array(
 				'theme_location' => 'footer',
 				'container_class' => 'menu'
 			) ); ?>
 		</nav><!-- #site-navigation -->
-		*/ ?>
-
+		<!-- WPGEN:CONFIG FOOTER_NAVIGATION:END -->
+		
 		<div class="site-info">
 			<span class="copy">&copy; <?php esc_html_e( 'Copyright', '_hs' ) ?> <?php echo esc_html( date( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?>. <?php esc_html_e( 'All Rights Reserved.', '_hs' ) ?></span>
 			<span class="seperator">|</span>

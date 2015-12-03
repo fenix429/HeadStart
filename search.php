@@ -9,7 +9,11 @@
 
 get_header(); ?>
 
+	<!-- WPGEN:CONFIG WIDGETIZED_SIDEBAR:BEGIN -->
+	<section id="primary" class="content-area with-sidebar">
+	<!-- WPGEN:CONFIG WIDGETIZED_SIDEBAR:ELSE -->
 	<section id="primary" class="content-area">
+	<!-- WPGEN:CONFIG WIDGETIZED_SIDEBAR:END -->
 		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
@@ -43,5 +47,7 @@ get_header(); ?>
 		</main><!-- #main -->
 	</section><!-- #primary -->
 
-<?php //get_sidebar(); ?>
+<!-- WPGEN:CONFIG WIDGETIZED_SIDEBAR:BEGIN -->
+<?php get_sidebar(); ?>
+<!-- WPGEN:CONFIG WIDGETIZED_SIDEBAR:END -->
 <?php get_footer(); ?>
