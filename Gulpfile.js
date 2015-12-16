@@ -92,22 +92,6 @@ gulp.task('less-minified', function() {
 		}));
 });
 
-gulp.task('less-build', ['process-images'], function() {
-	return gulp.src(paths.less)
-		.pipe(plumber({errorHandler: onError}))
-		.pipe(less({
-			// Include Paths
-			paths: [ path.join(__dirname, 'less', 'components') ]
-		}))
-		.pipe(minifycss())
-		.pipe(gulp.dest('.'))
-		.pipe(livereload())
-		.pipe(notify({
-			title: 'Gulp: Success!',
-			message: 'Less Compiled'
-		}));
-});
-
 gulp.task('phplint', function (cb) {
   phplint(paths.php, {limit: 10}, function (err, stdout, stderr) {
 	if (err) {
@@ -141,7 +125,7 @@ gulp.task('watch', function() {
 	gulp.watch(paths.php, ['phplint']);
 });
 
-gulp.task('build', ['process-images', 'less-build'], function() {
+gulp.task('build', ['process-images', 'less-minified'], function() {
 	var archiveFile = __dirname.split(path.sep).pop() + '.zip';
 
 	del.sync(['build/**']);
