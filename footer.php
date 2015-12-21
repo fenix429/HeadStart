@@ -22,7 +22,7 @@
 		<nav id="site-map" class="site-navigation" role="navigation">
 			<?php wp_nav_menu( array(
 				'theme_location' => 'footer',
-				'container_class' => 'menu'
+				'container_class' => 'menu-container'
 			) ); ?>
 		</nav><!-- #site-navigation -->
 		<!-- WPGEN:CONFIG FOOTER_NAVIGATION:END -->
