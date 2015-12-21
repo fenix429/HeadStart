@@ -74,11 +74,6 @@ function _hs_setup() {
 		'link',
 	) );
 
-	/* WPGEN:CONFIG SHORTCODES_IN_WIDGETS:BEGIN */
-	// Tells wordpress to look for shortcodes in widget text
-	add_filter('widget_text', 'do_shortcode');
-	/* WPGEN:CONFIG SHORTCODES_IN_WIDGETS:END */
-
 	/* WPGEN:CONFIG THEME_SETTINGS:BEGIN */
 	/*
 	*  Initialize the ACF options page
@@ -92,6 +87,9 @@ function _hs_setup() {
 		));
 	}
 	/* WPGEN:CONFIG THEME_SETTINGS:END */
+
+	// Tells wordpress to look for shortcodes in widget text
+	//add_filter('widget_text', 'do_shortcode');
 
 	// Enables The 'Hide' option for labels in Gravity Forms
 	//add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
