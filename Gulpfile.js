@@ -61,7 +61,7 @@ gulp.task('process-images', ['clean-images'], function() {
 
 gulp.task('less', function() {
 	return gulp.src(paths.less)
-		.pipe(plumber())
+		.pipe(plumber({errorHandler: onError}))
 		.pipe(less({
 			// Include Paths
 			paths: [ path.join(__dirname, 'less', 'components') ]
@@ -131,7 +131,7 @@ gulp.task('build', ['process-images', 'less-minified'], function() {
 	del.sync(['build/**']);
 
 	return gulp.src(paths.build, { base: "." })
-		.pipe(plumber())
+		.pipe(plumber({errorHandler: onError}))
 		.pipe(zip(archiveFile))
 		.pipe(gulp.dest('build'));
 });
