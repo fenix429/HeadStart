@@ -35,26 +35,3 @@
 .clearfix-after {
 	clear: both;
 }
-
-// Breakpoints
-.break(@query, @rules) {
-	@media screen and @query {
-		@rules();
-	}
-}
-
-.break-between(@min, @max, @rules) {
-	.break(~"(min-width : @{min}) and (max-width : @{max})", @rules);
-}
-
-.break-large(@direction, @rules) {
-	.break(~"(@{direction}-width: @{breakpoint__papa-bear})", @rules);
-}
-
-.break-med(@direction, @rules) {
-	.break(~"(@{direction}-width: @{breakpoint__mama-bear})", @rules);
-}
-
-.break-small(@direction, @rules) {
-	.break(~"(@{direction}-width: @{breakpoint__baby-bear})", @rules);
-}

@@ -43,13 +43,14 @@
 			
 		</div>
 
-		<nav id="main-navigation" class="site-navigation" role="navigation">
+		<nav id="main-navigation" class="site-navigation visible-md visible-lg" role="navigation">
 			<?php wp_nav_menu( array(
 					'theme_location' => 'header',
 					'container_id' => 'primary-menu',
 					'container_class' => 'menu-container'
 				) ); ?>
 		</nav><!-- #site-navigation -->
+		<div id="mobile-menu-container" class="visible-sm visible-xs"></div>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content column">
