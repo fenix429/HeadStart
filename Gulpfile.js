@@ -8,8 +8,12 @@ var plumber = require('gulp-plumber');
 var runSequence = require('run-sequence');
 var livereload = require('gulp-livereload');
 var less = require('gulp-less');
+var postcss = require('gulp-postcss');
+var autoprefixer = require('autoprefixer');
+var mqpacker = require('css-mqpacker');
+var orderedValues = require('postcss-ordered-values');
+var cssnano = require('cssnano');
 var sourcemaps = require('gulp-sourcemaps');
-var minifycss = require('gulp-minify-css');
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
 var phplint = require('phplint').lint;
@@ -60,21 +64,12 @@ gulp.task('process-images', ['clean-images'], function() {
 });
 
 gulp.task('less', function() {
-	return gulp.src(paths.less)
-		.pipe(plumber({errorHandler: onError}))
-		.pipe(less({
-			// Include Paths
-			paths: [ path.join(__dirname, 'less', 'components') ]
-		}))
-		.pipe(gulp.dest('.'))
-		.pipe(livereload())
-		.pipe(notify({
-			title: 'Gulp: Success!',
-			message: 'Less Compiled'
-		}));
-});
-
-gulp.task('less-minified', function() {
+	var processors = [
+        autoprefixer({browsers: ['last 1 version']}),
+        mqpacker(),
+        orderedValues(),
+        cssnano(),
+    ];
 	return gulp.src(paths.less)
 		.pipe(plumber({errorHandler: onError}))
 		.pipe(sourcemaps.init())
@@ -82,7 +77,7 @@ gulp.task('less-minified', function() {
 			// Include Paths
 			paths: [ path.join(__dirname, 'less', 'components') ]
 		}))
-		.pipe(minifycss())
+		.pipe(postcss(processors))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('.'))
 		.pipe(livereload())
@@ -117,7 +112,6 @@ gulp.task('phplint', function (cb) {
 
 gulp.task('watch', function() {
 	livereload.listen();
-	gulp.watch(paths.images, ['process-images']);
 	gulp.watch(paths.php).on( 'change', function( file ) {
 		livereload.changed( file );
 	} );
@@ -125,7 +119,6 @@ gulp.task('watch', function() {
 	gulp.watch(paths.php, ['phplint']);
 });
 
-gulp.task('build', ['process-images', 'less-minified'], function() {
 	var archiveFile = __dirname.split(path.sep).pop() + '.zip';
 
 	del.sync(['build/**']);
