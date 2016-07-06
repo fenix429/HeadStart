@@ -115,10 +115,12 @@ gulp.task('watch', function() {
 	gulp.watch(paths.php).on( 'change', function( file ) {
 		livereload.changed( file );
 	} );
+	gulp.watch(paths.images, ['process-images']);
 	gulp.watch('less/**/*.less', ['less']);
 	gulp.watch(paths.php, ['phplint']);
 });
 
+gulp.task('build', ['process-images', 'less'], function() {
 	var archiveFile = __dirname.split(path.sep).pop() + '.zip';
 
 	del.sync(['build/**']);
