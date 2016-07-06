@@ -130,5 +130,5 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', function(cb){
-	runSequence('phplint', 'process-images', 'less', 'watch', cb);
+	runSequence('phplint', 'less', 'watch', cb);
 });
